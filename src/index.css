@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Source Han Sans CN", Roboto, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1a1a2e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: white;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-shadow-neon {
+    text-shadow: 0 0 5px rgba(54, 226, 255, 0.7), 0 0 10px rgba(54, 226, 255, 0.5);
+  }
+  .box-shadow-neon {
+    box-shadow: 0 0 5px rgba(54, 226, 255, 0.5), 0 0 10px rgba(54, 226, 255, 0.3);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-cyan to-primary-magenta;
+  }
+}

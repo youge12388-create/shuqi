@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
 const MusicPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -11,19 +11,49 @@ const MusicPlayer = () => {
     audioRef.current.loop = true;
     audioRef.current.volume = 0.5;
 
-    // Attempt autoplay
-    const playPromise = audioRef.current.play();
-    
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((error) => {
-          console.log("Autoplay prevented by browser policy:", error);
-          setIsPlaying(false);
-        });
+    const playAudio = () => {
+      if (audioRef.current) {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch((error) => {
+              console.log("Autoplay prevented by browser policy:", error);
+              setIsPlaying(false);
+            });
+        }
+      }
+    };
+
+    // Attempt standard autoplay
+    playAudio();
+
+    // WeChat specific autoplay handling
+    const handleWeixinJSBridgeReady = () => {
+      playAudio();
+    };
+
+    // Listen for WeixinJSBridgeReady event (specific to WeChat browser)
+    if (typeof window !== 'undefined' && (window as any).WeixinJSBridge) {
+      handleWeixinJSBridgeReady();
+    } else {
+      document.addEventListener('WeixinJSBridgeReady', handleWeixinJSBridgeReady, false);
     }
+
+    // Fallback: Try to play on first user interaction if autoplay failed
+    const handleInteraction = () => {
+      if (audioRef.current && audioRef.current.paused) {
+        playAudio();
+      }
+      // Remove listeners once played
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+
+    document.addEventListener('click', handleInteraction);
+    document.addEventListener('touchstart', handleInteraction);
 
     // Cleanup
     return () => {
@@ -31,6 +61,9 @@ const MusicPlayer = () => {
         audioRef.current.pause();
         audioRef.current = null;
       }
+      document.removeEventListener('WeixinJSBridgeReady', handleWeixinJSBridgeReady);
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
     };
   }, []);
 

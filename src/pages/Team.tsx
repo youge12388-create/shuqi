@@ -22,7 +22,7 @@ const members = [
   },
   {
     name: '楚玲',
-    role: 'AI整体应用专家',
+    role: 'AI智能体专家',
     desc: '实战派，解决复杂应用场景',
     image: '/楚玲.jpg',
     icon: Zap,
@@ -30,10 +30,28 @@ const members = [
     gradient: 'from-primary-purple/20 to-pink-500/20'
   },
   {
-    name: '技术答疑团队',
+    name: '何聪',
     role: '技术答疑老师',
-    desc: '何聪 / 飞宇 / 周惠 - 主力军，随时解决具体问题',
-    image: '/技术答疑团队.jpg',
+    desc: '主力军，随时解决具体问题',
+    image: '/何聪.jpg',
+    icon: Code,
+    color: 'text-white',
+    gradient: 'from-white/10 to-gray-400/10'
+  },
+  {
+    name: '飞宇',
+    role: '技术答疑老师',
+    desc: '主力军，随时解决具体问题',
+    image: '/飞宇.jpg',
+    icon: Code,
+    color: 'text-white',
+    gradient: 'from-white/10 to-gray-400/10'
+  },
+  {
+    name: '周惠',
+    role: '技术答疑老师',
+    desc: '主力军，随时解决具体问题',
+    image: '/周惠.jpg',
     icon: Code,
     color: 'text-white',
     gradient: 'from-white/10 to-gray-400/10'

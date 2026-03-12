@@ -38,7 +38,7 @@ const Welcome = () => {
           <motion.h1 
             key={index} 
             variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-primary-magenta mb-6"
+            className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-primary-magenta mb-6"
           >
             {item.content}
           </motion.h1>
@@ -48,7 +48,7 @@ const Welcome = () => {
           <motion.h2 
             key={index} 
             variants={itemVariants}
-            className="text-xl md:text-2xl font-bold text-primary-cyan mt-8 mb-4 border-l-4 border-primary-magenta pl-3"
+            className="text-2xl md:text-3xl font-bold text-primary-cyan mt-8 mb-4 border-l-4 border-primary-magenta pl-3"
           >
             {item.content}
           </motion.h2>
@@ -58,7 +58,7 @@ const Welcome = () => {
           <motion.h3 
             key={index} 
             variants={itemVariants}
-            className="text-lg font-semibold text-white mt-4 mb-2"
+            className="text-xl font-semibold text-white mt-4 mb-2"
           >
             {item.content}
           </motion.h3>
@@ -68,7 +68,7 @@ const Welcome = () => {
           <motion.p 
             key={index} 
             variants={itemVariants}
-            className="text-gray-300 leading-relaxed mb-3 text-base"
+            className="text-gray-300 leading-relaxed mb-3 text-lg"
           >
             {item.content}
           </motion.p>
@@ -78,12 +78,12 @@ const Welcome = () => {
           <motion.ul 
             key={index} 
             variants={itemVariants}
-            className="space-y-2 mb-4 ml-4"
+            className="space-y-4 mb-6 ml-0"
           >
             {item.content.map((li: string, i: number) => (
-              <li key={i} className="flex items-start gap-2 text-gray-300">
-                <span className="text-primary-magenta mt-1.5">•</span>
-                <span>{li}</span>
+              <li key={i} className="flex items-start gap-3 text-gray-300 text-lg">
+                <span className="text-primary-magenta mt-1 shrink-0">•</span>
+                <span className="leading-relaxed">{li}</span>
               </li>
             ))}
           </motion.ul>
@@ -93,7 +93,7 @@ const Welcome = () => {
           <motion.div 
             key={index} 
             variants={itemVariants}
-            className="bg-white/5 border border-primary-cyan/30 rounded-lg p-4 my-4 text-primary-cyan font-medium shadow-[0_0_15px_rgba(54,226,255,0.1)]"
+            className="bg-surface-light/50 border border-primary-cyan/30 rounded-lg p-5 my-4 text-primary-cyan font-medium text-xl shadow-[0_0_20px_rgba(54,226,255,0.15)] backdrop-blur-sm hover:border-primary-cyan/60 hover:shadow-[0_0_25px_rgba(54,226,255,0.25)] transition-all duration-300"
           >
             {item.content}
           </motion.div>
@@ -103,7 +103,7 @@ const Welcome = () => {
           <motion.div 
             key={index} 
             variants={itemVariants}
-            className="text-right mt-10 mb-20 text-lg font-bold text-white whitespace-pre-line"
+            className="text-right mt-10 mb-20 text-xl font-bold text-white whitespace-pre-line"
           >
             {item.content}
           </motion.div>
@@ -122,17 +122,7 @@ const Welcome = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden">
-      {/* Background Image Layer */}
-      <div 
-        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: "url('/welcome-bg.jpg')" }}
-      />
-      {/* Fallback Gradient if image missing or for overlay */}
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background-dark/95 via-background-dark/90 to-background-dark/95 pointer-events-none" />
-
-      {/* Content Container */}
-      <div className="relative z-10 max-w-2xl mx-auto px-6 py-12 pb-32">
+    <div className="relative z-10 max-w-2xl mx-auto px-6 py-12 pb-32">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -157,7 +147,6 @@ const Welcome = () => {
           </motion.div>
         </motion.div>
       </div>
-    </div>
   );
 };
 

@@ -48,12 +48,14 @@ const MusicPlayer = () => {
         playAudio();
       }
       // Remove listeners once played
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
+      ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'].forEach(event => {
+        document.removeEventListener(event, handleInteraction);
+      });
     };
 
-    document.addEventListener('click', handleInteraction);
-    document.addEventListener('touchstart', handleInteraction);
+    ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'].forEach(event => {
+      document.addEventListener(event, handleInteraction);
+    });
 
     // Cleanup
     return () => {
@@ -62,8 +64,9 @@ const MusicPlayer = () => {
         audioRef.current = null;
       }
       document.removeEventListener('WeixinJSBridgeReady', handleWeixinJSBridgeReady);
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
+      ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'].forEach(event => {
+        document.removeEventListener(event, handleInteraction);
+      });
     };
   }, []);
 

@@ -735,9 +735,14 @@ h1,
 
   .nav-action {
     min-height: 42px;
-    padding: 0 14px;
-    font-size: 0;
-    width: 42px;
+    min-width: 108px;
+    padding: 0 18px;
+    font-size: 14px;
+    width: auto;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 999px;
+    flex-shrink: 0;
   }
 
   main {

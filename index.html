@@ -1,24 +1,178 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>锦囊妙计AI</title>
-    <script type="module">
-      if (import.meta.hot?.on) {
-        import.meta.hot.on('vite:error', (error) => {
-          if (error.err) {
-            console.error(
-              [error.err.message, error.err.frame].filter(Boolean).join('\n'),
-            )
-          }
-        })
-      }
-    </script>
+    <title>中科AI智能体商城</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="./app.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="topbar">
+      <a class="brand" href="#market" aria-label="中科AI智能体商城">
+        <img class="brand-logo" src="./assets/logo-ai.png" alt="中科AI" />
+        <span class="brand-text">中科AI</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a href="#market">产品</a>
+        <a href="./team.html">团队介绍</a>
+        <a href="#products">方案</a>
+        <a href="#delivery">交付</a>
+        <a href="#contact">咨询</a>
+      </nav>
+      <button class="nav-action" type="button" data-scroll="#contact">获取方案</button>
+    </header>
+
+    <main id="market">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">企业AI智能体商城</p>
+          <h1>让企业更清楚地购买AI能力</h1>
+          <p class="hero-text">
+            从工具入门、团队作战包到企业专属系统，用更直接的产品结构，把学习、落地和定制分清楚。
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" type="button" data-scroll="#products">
+              查看产品
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <button class="secondary-button" type="button" data-scroll="#delivery">交付流程</button>
+          </div>
+        </div>
+
+        <div class="hero-stage">
+          <div class="stage-copy">
+            <h2 id="stageTitle">AI操盘手</h2>
+            <p id="stageSummary">用一套清晰课程和实操模板，让客户快速掌握海报、视频、PPT、音乐、智能体搭建等高频AI能力。</p>
+            <div class="stage-tags" id="stageTags"></div>
+          </div>
+          <div class="stage-visual">
+            <canvas id="workflowCanvas" width="680" height="360" aria-label="产品流程示意图"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="products" id="products">
+        <div class="section-head">
+          <p class="eyebrow">产品方案</p>
+          <h2>三层产品，分别解决三个阶段的问题</h2>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card active" data-plan="starter">
+            <div class="product-meta">
+              <span>01</span>
+              <strong>¥999</strong>
+            </div>
+            <h3>AI操盘手</h3>
+            <p>适合第一次系统学习AI工具的人和团队。</p>
+            <button type="button">了解方案</button>
+          </article>
+
+          <article class="product-card" data-plan="pro">
+            <div class="product-meta">
+              <span>02</span>
+              <strong>¥12800</strong>
+            </div>
+            <h3>AI商业效率作战包</h3>
+            <p>适合希望团队直接用起来、老板拿回去就能部署的场景。</p>
+            <button type="button">了解方案</button>
+          </article>
+
+          <article class="product-card" data-plan="custom">
+            <div class="product-meta">
+              <span>03</span>
+              <strong>¥19800</strong>
+            </div>
+            <h3>企业专属智能体系统</h3>
+            <p>适合业务流程更复杂、需要按行业定制的企业。</p>
+            <button type="button">了解方案</button>
+          </article>
+        </div>
+
+        <div class="details-panel">
+          <div class="details-copy">
+            <p class="details-label" id="detailType">适合初次系统学习AI工具的个人和团队</p>
+            <h3 id="detailTitle">AI操盘手</h3>
+            <p id="detailSummary">用一套清晰课程和实操模板，让客户快速掌握海报、视频、PPT、音乐、智能体搭建等高频AI能力。</p>
+          </div>
+          <div class="details-list">
+            <div>
+              <span>你会得到</span>
+              <ul id="detailModules"></ul>
+            </div>
+            <div>
+              <span>适合现在的你</span>
+              <ul id="detailOutcomes"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="delivery" id="delivery">
+        <div class="section-head">
+          <p class="eyebrow">交付流程</p>
+          <h2>先判断需求，再交付产品，最后跑通结果</h2>
+        </div>
+        <div class="delivery-grid">
+          <article>
+            <span>01</span>
+            <h3>需求诊断</h3>
+            <p>确认客户行业、团队能力和当前最想解决的问题。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>产品配置</h3>
+            <p>根据所选层级交付工具、模板、流程和使用路径。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>培训验收</h3>
+            <p>让老板和团队知道怎么用，并用清单确认结果能落地。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-copy">
+          <p class="eyebrow">方案咨询</p>
+          <h2>告诉我们你现在最需要哪一种AI能力</h2>
+          <p>我们会按工具入门、团队落地、企业定制三条路径，给出更合适的方案建议。</p>
+        </div>
+        <form class="lead-form">
+          <label>
+            关注方案
+            <select id="planSelect" name="plan">
+              <option value="starter">AI操盘手</option>
+              <option value="pro">AI商业效率作战包</option>
+              <option value="custom">企业专属智能体系统</option>
+            </select>
+          </label>
+          <label>
+            当前目标
+            <select name="goal">
+              <option>先把AI工具学会</option>
+              <option>让团队直接用起来</option>
+              <option>做一套专属业务系统</option>
+            </select>
+          </label>
+          <label>
+            手机
+            <input type="tel" name="phone" placeholder="用于产品咨询" autocomplete="tel" />
+          </label>
+          <button class="primary-button" type="submit">
+            提交咨询
+            <i data-lucide="send"></i>
+          </button>
+        </form>
+      </section>
+    </main>
   </body>
 </html>

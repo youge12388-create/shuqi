@@ -30,6 +30,15 @@ const plans = {
 
 let activePlan = "starter";
 
+function syncDeviceMode() {
+  const root = document.documentElement;
+  const isTouch = window.matchMedia("(pointer: coarse)").matches;
+  const isCompact = window.matchMedia("(max-width: 720px)").matches;
+
+  root.dataset.device = isCompact ? "mobile" : "desktop";
+  root.dataset.input = isTouch ? "touch" : "pointer";
+}
+
 function setPlan(key) {
   activePlan = key;
   const plan = plans[key];
@@ -170,9 +179,13 @@ function bindEvents() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  syncDeviceMode();
   bindEvents();
   setPlan(activePlan);
   if (window.lucide) window.lucide.createIcons();
 });
 
-window.addEventListener("resize", () => setPlan(activePlan));
+window.addEventListener("resize", () => {
+  syncDeviceMode();
+  setPlan(activePlan);
+});

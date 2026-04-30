@@ -488,6 +488,7 @@ h1,
   border: 1px solid rgba(173, 196, 235, 0.45);
   box-shadow: 0 28px 70px rgba(56, 88, 152, 0.18);
   background: #071634;
+  min-height: 320px;
 }
 
 .team-hero-media img {
@@ -591,6 +592,7 @@ h1,
   display: grid;
   gap: 22px;
   padding: 34px;
+  align-content: start;
 }
 
 .member-card.featured {
@@ -728,16 +730,16 @@ h1,
   }
 
   .brand-logo {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
   }
 
   .nav-action {
     min-height: 42px;
-    padding: 0 14px;
-    font-size: 0;
-    width: 42px;
+    padding: 0 16px;
+    font-size: 14px;
+    width: auto;
   }
 
   main {
@@ -758,8 +760,8 @@ h1,
   .section-head h2,
   .contact-copy h2 {
     max-width: 100%;
-    font-size: 30px;
-    line-height: 1.28;
+    font-size: 28px;
+    line-height: 1.24;
     word-break: normal;
   }
 
@@ -779,7 +781,6 @@ h1,
   .delivery-grid article,
   .contact-copy,
   .lead-form,
-  .team-hero-media,
   .team-hero-panel,
   .member-card,
   .value-grid article,
@@ -808,7 +809,6 @@ h1,
   .delivery-grid article,
   .contact,
   .lead-form,
-  .team-hero-media,
   .team-hero-panel,
   .member-card,
   .value-grid article,
@@ -839,7 +839,7 @@ h1,
   }
 
   .team-hero-copy {
-    padding-top: 6px;
+    padding-top: 2px;
     text-align: left;
   }
 
@@ -857,5 +857,110 @@ h1,
   .team-cta-actions {
     padding: 20px;
     justify-content: flex-start;
+  }
+
+  .team-hero {
+    gap: 18px;
+  }
+
+  .team-hero-media {
+    min-height: 220px;
+    border-radius: 24px;
+  }
+
+  .team-hero-media img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .team-hero-panel {
+    display: grid;
+    gap: 18px;
+  }
+
+  .team-hero-intro {
+    gap: 10px;
+  }
+
+  .hero-chip {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .team-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .team-stats article {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .team-stats span {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .team-members,
+  .team-values {
+    padding-top: 64px;
+  }
+
+  .section-head {
+    margin-bottom: 22px;
+  }
+
+  .member-grid {
+    gap: 14px;
+  }
+
+  .member-card {
+    gap: 16px;
+    padding: 22px 18px;
+  }
+
+  .member-header {
+    align-items: center;
+  }
+
+  .member-role,
+  .member-index {
+    font-size: 12px;
+  }
+
+  .member-points {
+    gap: 10px;
+  }
+
+  .member-points li {
+    padding-top: 10px;
+    line-height: 1.65;
+  }
+
+  .value-grid {
+    gap: 14px;
+  }
+
+  .value-grid article {
+    padding: 22px 18px;
+  }
+
+  .team-cta {
+    margin-top: 64px;
+  }
+
+  .team-cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .team-cta-actions .primary-button,
+  .team-cta-actions .secondary-button {
+    width: 100%;
   }
 }
